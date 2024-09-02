@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/climbing-stairs/description/
+# https://leetcode.com/problems/climbing-stairs/description
 
 class Solution(object):
     def climbStairs(self, n):
