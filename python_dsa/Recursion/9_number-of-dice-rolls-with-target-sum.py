@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/description/
 
+# number of ways
 class Solution(object):
     def numRollsToTarget(self, n, k, target):
         """

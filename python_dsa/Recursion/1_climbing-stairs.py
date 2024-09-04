@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/climbing-stairs/description
 
+#how many ways
+
 class Solution(object):
     def climbStairs(self, n):
         """
