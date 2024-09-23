@@ -53,6 +53,7 @@ class Solution(object):
             for e in range(1, n+1):
                 if s>=e:
                     dp[s][e]=0
+                    continue
                 ans = float('inf')
                 for i in range(s, e):
                     ans = min(ans, i + max(dp[s][i-1], dp[i+1][e]))
