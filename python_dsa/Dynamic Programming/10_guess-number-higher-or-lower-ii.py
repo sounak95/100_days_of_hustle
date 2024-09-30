@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/guess-number-higher-or-lower-ii/
 # 00:10:40.40
+# range s--> e partition
 class Solution(object):
 
     def helper_rec(self, s, e):
@@ -7,6 +8,7 @@ class Solution(object):
             return 0
 
         ans = float('inf')
+        # important its s--> e and not e+1
         for i in range(s, e):
             ans = min(ans, i + max(self.helper_rec(s, i - 1), self.helper_rec(i + 1, e)))
 

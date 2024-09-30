@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/description/
+# no. of ways
+
 MOD = 10**9 + 7
 # 00:19:04.80
 class Solution(object):

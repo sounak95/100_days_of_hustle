@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/coin-change/description/
-
+# num of coins
 
 class Solution(object):
     def helper_rec(self,coins, amount):

@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/maximum-height-by-stacking-cuboids/
 # 00:14:59.70
+
+# include exclude
 class Solution(object):
     def check(self, cuboids, curr_ind, prev_ind):
         if cuboids[curr_ind][0] >= cuboids[prev_ind][0] and cuboids[curr_ind][1] >= cuboids[prev_ind][1] and \
@@ -36,7 +38,7 @@ class Solution(object):
     def helper_mem(self, cuboids, curr_ind, prev_ind, dp):
         if curr_ind == len(cuboids):
             return 0
-
+        # Note: index shifting: prev_ind+1
         if dp[curr_ind][prev_ind+1]!=-1:
             return dp[curr_ind][prev_ind+1]
 
@@ -77,7 +79,9 @@ class Solution(object):
             for prev_ind in range(curr_ind-1, -2, -1):
                 include = 0
                 if prev_ind == -1 or self.check_rev(cuboids, curr_ind, prev_ind):
+                    # Note: index shifting: curr_ind+1
                     include = cuboids[curr_ind][2] + dp[curr_ind + 1][curr_ind+1]
+                # Note: index shifting: prev_ind+1
                 exclude = dp[curr_ind+1][prev_ind+1]
 
                 dp[curr_ind][prev_ind + 1] = max(include, exclude)

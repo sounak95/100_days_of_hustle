@@ -1,3 +1,33 @@
+'''
+helper_rec(s1 = "ab", s2 = "cd", s3 = "abcd", i = 0, j = 0, k = 0)
+
+Decision: s1[0] == s3[0] ('a' == 'a')
+    |
+    v
+helper_rec(s1 = "ab", s2 = "cd", s3 = "abcd", i = 1, j = 0, k = 1)
+
+Decision: s1[1] == s3[1] ('b' == 'b')
+    |
+    v
+helper_rec(s1 = "ab", s2 = "cd", s3 = "abcd", i = 2, j = 0, k = 2)
+
+Decision: i == len(s1), so move to check s2
+
+Decision: s2[0] == s3[2] ('c' == 'c')
+    |
+    v
+helper_rec(s1 = "ab", s2 = "cd", s3 = "abcd", i = 2, j = 1, k = 3)
+
+Decision: s2[1] == s3[3] ('d' == 'd')
+    |
+    v
+helper_rec(s1 = "ab", s2 = "cd", s3 = "abcd", i = 2, j = 2, k = 4)
+
+Base Case: i == len(s1), j == len(s2), and k == len(s3)
+Return True
+
+'''
+
 # https://leetcode.com/problems/interleaving-string/description/
 
 class Solution(object):
@@ -72,7 +102,7 @@ class Solution(object):
 
                     flag = False
                     if i < len(s1) and k < len(s3) and s1[i] == s3[k]:
-                        flag = flag or dp[i+1][j][k+1]
+                        flag =  dp[i+1][j][k+1]
 
                     if j < len(s2) and k < len(s3) and s2[j] == s3[k]:
                         flag = flag or dp[i][j+1][k+1]

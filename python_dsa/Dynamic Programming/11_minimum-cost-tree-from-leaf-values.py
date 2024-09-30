@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/description/
-
+# range s--> e partition
 class Solution(object):
 
     def helper_rec(self, s, e, maxi):

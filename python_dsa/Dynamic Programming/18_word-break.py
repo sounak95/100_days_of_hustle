@@ -1,5 +1,14 @@
 # https://leetcode.com/problems/word-break/description/
+'''
+helper_rec("leetcode", 0)
+│
+├── helper_rec("leetcode", 4)  [because "leet" is in wordDict]
+│   └── helper_rec("leetcode", 8)  [because "code" is in wordDict]
+│       └── return True  [Base case: start == len(s)]
+│
+└── return True
 
+'''
 class Solution(object):
     def check(self, word, wordDict):
         return word in wordDict

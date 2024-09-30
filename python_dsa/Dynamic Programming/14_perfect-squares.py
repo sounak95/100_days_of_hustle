@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/perfect-squares/description/
+# no. of ways
 import math
 class Solution(object):
     def helper_rec(self, n):
@@ -59,6 +60,7 @@ class Solution(object):
                 continue
             ans = float('inf')
             for i in range(1, int(math.sqrt(num)) + 1):
+                # important
                 if num-(i*i)>=0:
                     ans = min(ans, 1 + dp[num-(i*i)])
 
