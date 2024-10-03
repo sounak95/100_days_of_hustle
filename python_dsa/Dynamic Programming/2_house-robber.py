@@ -43,6 +43,7 @@ class Solution(object):
         dp[n-1] = nums[n-1]
 
         for index in range(n-2, -1, -1):
+            #important
             if index+2<n:
                 include = nums[index] + dp[index+2]
             else:

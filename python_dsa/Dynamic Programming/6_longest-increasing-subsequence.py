@@ -25,6 +25,7 @@ class Solution(object):
         if curr_ind == len(nums):
             return 0
 
+        # index shifting
         if dp[curr_ind][prev_ind + 1] != -1:
             return dp[curr_ind][prev_ind + 1]
 
@@ -36,6 +37,7 @@ class Solution(object):
 
         dp[curr_ind][prev_ind + 1] = max(include, exclude)
 
+        # index shifting
         return dp[curr_ind][prev_ind + 1]
 
     def lengthOfLIS_mem(self, nums):
@@ -56,12 +58,15 @@ class Solution(object):
         dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
         for curr_ind in range(n-1, -1, -1):
+            # important
             for prev_ind in range(curr_ind-1, -2, -1):
                 include = 0
                 if prev_ind == -1 or nums[curr_ind] > nums[prev_ind]:
+                    # index shifting
                     include = 1 + dp[curr_ind + 1][curr_ind+1]
-
+                # index shifting
                 exclude = dp[curr_ind + 1][prev_ind+1]
+                # index shifting
                 dp[curr_ind][prev_ind + 1] = max(include, exclude)
 
         return dp[0][0]

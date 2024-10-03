@@ -36,14 +36,15 @@ class Solution(object):
         if i == len(s1) and j == len(s2) and k == len(s3):
             return True
 
-        flag = False
+        flag1 = False
         if i < len(s1) and k < len(s3) and s1[i] == s3[k]:
-            flag = flag or self.helper_rec(s1, s2, s3, i + 1, j, k + 1)
+            flag1 = self.helper_rec(s1, s2, s3, i + 1, j, k + 1)
 
+        flag2 = False
         if j < len(s2) and k < len(s3) and s2[j] == s3[k]:
-            flag = flag or self.helper_rec(s1, s2, s3, i, j + 1, k + 1)
+            flag2 = self.helper_rec(s1, s2, s3, i, j + 1, k + 1)
 
-        return flag
+        return flag1 or flag2
 
     def isInterleave_rec(self, s1, s2, s3):
         """

@@ -8,6 +8,7 @@ class Solution(object):
         include = 0
         exclude = self.solve_rec(numStrs, m, n, i + 1)
         zeros, ones = numStrs[i]
+        # zeros<=m , ones<=n
         if m - zeros >= 0 and n - ones >= 0:
             include = 1 + self.solve_rec(numStrs, m - zeros, n - ones, i + 1)
 

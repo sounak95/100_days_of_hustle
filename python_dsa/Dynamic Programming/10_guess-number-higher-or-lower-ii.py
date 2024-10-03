@@ -8,8 +8,7 @@ class Solution(object):
             return 0
 
         ans = float('inf')
-        # important its s--> e and not e+1
-        for i in range(s, e):
+        for i in range(s, e+1):
             ans = min(ans, i + max(self.helper_rec(s, i - 1), self.helper_rec(i + 1, e)))
 
         return ans
@@ -29,7 +28,7 @@ class Solution(object):
             return dp[s][e]
 
         ans = float('inf')
-        for i in range(s, e):
+        for i in range(s, e+1):
             ans = min(ans, i + max(self.helper_mem(s, i - 1, dp), self.helper_mem(i + 1, e, dp)))
 
         dp[s][e]= ans
@@ -49,7 +48,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        dp = [[-1 for _ in range(n+1)]for _ in range(n+1)]
+        dp = [[-1 for _ in range(n+1)]for _ in range(n+2)]
 
         for s in range(n, 0 , -1):
             for e in range(1, n+1):
@@ -57,7 +56,7 @@ class Solution(object):
                     dp[s][e]=0
                     continue
                 ans = float('inf')
-                for i in range(s, e):
+                for i in range(s, e+1):
                     ans = min(ans, i + max(dp[s][i-1], dp[i+1][e]))
                     dp[s][e]= ans
 
